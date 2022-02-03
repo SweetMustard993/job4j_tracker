@@ -9,6 +9,5 @@ public class BallStory {
         wolf.tryEat(ball);
         Fox fox = new Fox();
         fox.tryEat(ball);
-
     }
 }
