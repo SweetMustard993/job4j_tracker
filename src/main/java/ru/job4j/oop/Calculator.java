@@ -25,7 +25,7 @@ public class Calculator {
     }
 
     public static void main(String[] args) {
-        Calculator calc =new Calculator();
+        Calculator calc = new Calculator();
         System.out.println(calc.multiply(5));
         System.out.println(calc.divide(9));
         System.out.println(calc.sumAllOperation(10));
