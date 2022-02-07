@@ -16,7 +16,6 @@ public class TriangleTest {
         double rsl = triangle.area();
         assertThat(rsl, closeTo(8, 0.001));
     }
-
     @Test
     public void when11and22and33ThenMin1() {
         Point a = new Point(1, 1);
