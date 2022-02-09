@@ -8,6 +8,10 @@ public class Doctor extends Profession {
         this.qualification = qualification;
     }
 
+    public String getQualification() {
+        return qualification;
+    }
+
     public Diagnosis checkup(Patient patient) {
         return new Diagnosis();
     }

@@ -8,6 +8,10 @@ public class Programmer extends Engineer {
         this.language = language;
     }
 
+    public String getLanguage() {
+        return language;
+    }
+
     public Code construction(Project project, Specification specification, String language) {
         return new Code();
     }

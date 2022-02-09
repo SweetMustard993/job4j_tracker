@@ -8,6 +8,10 @@ public class Engineer extends Profession {
         this.specialization = specialization;
     }
 
+    public String getSpecialization() {
+        return specialization;
+    }
+
     public Project develop(Specification specification) {
         return new Project();
     }

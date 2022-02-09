@@ -8,6 +8,10 @@ public class Builder extends Engineer {
         this.brigade = brigade;
     }
 
+    public String getBrigade() {
+        return brigade;
+    }
+
     public Building constructionControl(Specification specification, Project project, String brigade) {
         return new Building();
     }

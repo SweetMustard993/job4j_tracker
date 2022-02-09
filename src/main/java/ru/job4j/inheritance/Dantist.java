@@ -8,6 +8,10 @@ public class Dantist extends Doctor {
         this.dentalUnit = dentalUnit;
     }
 
+    public String getDentalUnit() {
+        return dentalUnit;
+    }
+
     public ToothFilling installation(Patient patient, Diagnosis diagnosis, String dentalUnit) {
         return new ToothFilling();
     }
