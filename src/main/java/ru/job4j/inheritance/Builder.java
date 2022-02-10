@@ -17,7 +17,6 @@ public class Builder extends Engineer {
     }
 }
 
-class Building {
-}
+
 
 

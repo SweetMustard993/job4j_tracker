@@ -18,7 +18,5 @@ public class Surgeon extends Doctor {
     }
 }
 
-class Surgery {
-}
 
 

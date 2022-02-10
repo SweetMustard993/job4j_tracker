@@ -17,9 +17,6 @@ public class Programmer extends Engineer {
     }
 }
 
-class Code {
-}
-
 
 
 

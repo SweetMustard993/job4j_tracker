@@ -17,5 +17,3 @@ public class Dantist extends Doctor {
     }
 }
 
-class ToothFilling {
-}

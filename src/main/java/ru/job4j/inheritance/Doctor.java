@@ -17,8 +17,3 @@ public class Doctor extends Profession {
     }
 }
 
-class Patient {
-}
-
-class Diagnosis {
-}

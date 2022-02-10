@@ -17,10 +17,5 @@ public class Engineer extends Profession {
     }
 }
 
-class Project {
-}
-
-class Specification {
-}
 
 
