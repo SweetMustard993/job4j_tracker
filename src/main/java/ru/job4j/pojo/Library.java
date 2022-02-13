@@ -26,7 +26,7 @@ public class Library {
         System.out.println("Show books only with name \"Clean code\"");
         for (int i = 0; i < shelf.length; i++) {
             Book book = shelf[i];
-            if (book.getName().equals("Clean code")) {
+            if ("Clean code".equals(book.getName())) {
                 System.out.println("название книги: " + book.getName() + " ; " + "количество страниц: " + book.getCount());
             }
         }
