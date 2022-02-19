@@ -18,18 +18,7 @@ public class Matches {
                 count = count - withdrawn;
                 System.out.println("на столе осталось - " + count + " спичек");
             } else {
-                System.out.println("Жулничать нехорошо, попрбуй взять еще раз соблюдая правила");
-                boolean validate = false;
-                while (!validate) {
-                    withdrawn = Integer.parseInt(input.nextLine());
-                    if (withdrawn < 4 && withdrawn > 0) {
-                        validate = true;
-                        count = count - withdrawn;
-                        System.out.println("на столе осталось - " + count + "спичек");
-                    } else {
-                        System.out.println("Жулничать нехорошо, попрбуй взять еще раз соблюдая правила");
-                    }
-                }
+                System.out.println("Жулничать нехорошо");
             }
         }
         if (!turn) {
