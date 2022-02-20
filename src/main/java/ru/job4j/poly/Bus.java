@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Bus implements Transport {
     @Override
     public void drive() {
-        Scanner input =new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         boolean stop = false;
-        while (!stop){
+        while (!stop) {
             System.out.println("водитель совершает остановку по требованию");
             String busStop = input.nextLine();
-            if (busStop == null){
+            if (busStop == null) {
                 System.out.println("автобус проезжает без остановки");
             } else {
                 System.out.println("автобус совершит остановку на" + busStop);
