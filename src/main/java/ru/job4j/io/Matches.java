@@ -11,12 +11,12 @@ public class Matches {
         int withdrawn = 0;
         while (count > 0) {
             String player = turn ? "Первый игрок" : "Второй игрок";
-            System.out.println(player + " введите число от 1 до 3:");
-            turn = !turn;
+            System.out.println(player + " введите число от 1 до " + Math.min(count, 3) + ":");
             withdrawn = Integer.parseInt(input.nextLine());
-            if (withdrawn < 4 && withdrawn > 0) {
+            if (withdrawn <= Math.min(count, 3) && withdrawn > 0) {
                 count = count - withdrawn;
                 System.out.println("на столе осталось - " + count + " спичек");
+                turn = !turn;
             } else {
                 System.out.println("Жулничать нехорошо");
             }
