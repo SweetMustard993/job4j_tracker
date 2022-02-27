@@ -14,6 +14,7 @@ public class FindEl {
         }
         return rsl;
     }
+
     public static void main(String[] args) {
         FindEl findEl = new FindEl();
         String[] value = new String[]{"one", "two", "three"};
