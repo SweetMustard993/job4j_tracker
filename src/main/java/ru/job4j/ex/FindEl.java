@@ -12,10 +12,8 @@ public class FindEl {
         if (rsl == -1) {
             throw new ElementNotFoundException("Element Not Found");
         }
-
         return rsl;
     }
-
     public static void main(String[] args) {
         FindEl findEl = new FindEl();
         String[] value = new String[]{"one", "two", "three"};
