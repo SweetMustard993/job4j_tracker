@@ -5,7 +5,6 @@ public class JdbcConfig {
         if (url == null) {
             throw new UserInputException("Url could not be null");
         }
-        /*load jdbc*/
     }
 
     public static void main(String[] args) {
