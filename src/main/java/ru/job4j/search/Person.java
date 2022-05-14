@@ -28,18 +28,4 @@ public class Person {
     public String getAddress() {
         return address;
     }
-
-    @Override
-    public String toString() {
-        return "Person{" + "name='" + name + '\''
-                + ", surname='" + surname + '\''
-                + ", phone='" + phone + '\''
-                + ", address='" + address + '\'' + '}';
-    }
-
-    public static void main(String[] args) {
-        Person person = new Person("Test", "Testov",
-                "9001234567", "5-59-15");
-        System.out.println(person.toString());
-    }
 }

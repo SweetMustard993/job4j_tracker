@@ -9,7 +9,7 @@ import java.util.function.Function;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-public class DiapasonFunctionTest {
+public class DiapasonTest {
 
     @Test
     public void whenLinearFunctionThenLinearResults() {
