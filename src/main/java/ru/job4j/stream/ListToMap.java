@@ -10,6 +10,6 @@ public class ListToMap {
     public static Map<String, Student> convert(List<Student> list) {
         return list.stream()
                 .collect(Collectors.toMap(Student::getSurname,
-                        student -> student, (s1,s2) -> s1));
+                        student -> student, (s1, s2) -> s1));
     }
 }
