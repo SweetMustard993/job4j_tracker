@@ -13,8 +13,8 @@ public class Card {
 
     public static void main(String[] args) {
         Stream.of(Suit.values())
-                .flatMap(suit -> Stream.of(Value.values())
-                        .map(value -> suit + " " + value))
+                .flatMap(s -> Stream.of(Value.values())
+                        .map(value -> s + " " + value))
                 .forEach(System.out::println);
     }
 }
