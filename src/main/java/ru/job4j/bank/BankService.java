@@ -70,12 +70,9 @@ public class BankService {
     public Optional<Account> findByRequisite(String passport, String requisite) {
         Optional<Account> rsl = Optional.empty();
         Optional<List<Account>> userAccounts = Optional.ofNullable(users.get(findByPassport(passport).orElse(null)));
-        if (userAccounts.isPresent()) {
-            return userAccounts.get().stream()
-                    .filter(s -> s.getRequisite().equals(requisite))
-                    .findFirst();
-        }
-        return rsl;
+        return userAccounts.map(accounts -> accounts.stream()
+                .filter(s -> s.getRequisite().equals(requisite))
+                .findFirst()).orElse(rsl);
     }
 
     /**
