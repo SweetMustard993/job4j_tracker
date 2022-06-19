@@ -68,11 +68,10 @@ public class BankService {
      * @return возвращает ссылку на найденный по пасспорту и реквизитам счет
      */
     public Optional<Account> findByRequisite(String passport, String requisite) {
-        Optional<Account> rsl = Optional.empty();
-        Optional<List<Account>> userAccounts = Optional.ofNullable(users.get(findByPassport(passport).orElse(null)));
-        return userAccounts.map(accounts -> accounts.stream()
+        return findByPassport(passport).flatMap(u -> users.get(u).stream()
                 .filter(s -> s.getRequisite().equals(requisite))
-                .findFirst()).orElse(rsl);
+                .findFirst()
+        );
     }
 
     /**
