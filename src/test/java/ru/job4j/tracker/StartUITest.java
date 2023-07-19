@@ -2,8 +2,6 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
-import org.junit.Test;
-
 import java.util.ArrayList;
 
 import static org.hamcrest.Matchers.is;
@@ -15,7 +13,7 @@ public class StartUITest {
     @Test
     public void whenReplaceItemTestOutputIsSuccessfully() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item one = tracker.add(new Item("test1"));
         String replaceName = "New Test Name";
         Input in = new StubInput(
@@ -45,7 +43,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"0"}
         );
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         ArrayList<UserAction> actions = new ArrayList<UserAction>();
         actions.add(new ExiteAction(out));
         new StartUI(out).init(in, tracker, actions);
@@ -59,7 +57,7 @@ public class StartUITest {
     @Test
     public void whenFindAllTestOutputIsSuccessfully() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item one = tracker.add(new Item("test1"));
         Input in = new StubInput(
                 new String[]{"0", "1"}
@@ -85,7 +83,7 @@ public class StartUITest {
     @Test
     public void whenFindByIDActionTestOutputIsSuccessfully() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item one = tracker.add(new Item("test1"));
         Input in = new StubInput(
                 new String[]{"0", String.valueOf(one.getId()), "1"}
@@ -111,7 +109,7 @@ public class StartUITest {
     @Test
     public void whenFindItemsByNameActionTestOutputIsSuccessfully() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item one = tracker.add(new Item("test1"));
         Item two = tracker.add(new Item("test1"));
         Item three = tracker.add(new Item("test1"));
@@ -144,7 +142,7 @@ public class StartUITest {
         Input in = new StubInput(
                 new String[]{"4", "0"}
         );
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         ArrayList<UserAction> actions = new ArrayList<>();
         actions.add(new ExiteAction(out));
         new StartUI(out).init(in, tracker, actions);
