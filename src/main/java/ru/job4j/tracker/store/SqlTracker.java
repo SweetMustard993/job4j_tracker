@@ -38,6 +38,10 @@ public class SqlTracker implements Store {
         }
     }
 
+    private Item itemOf(int id, String name, LocalDateTime date) {
+        return new Item(id, name, date);
+    }
+
     @Override
     public void close() throws SQLException {
         if (cn != null) {
@@ -97,7 +101,7 @@ public class SqlTracker implements Store {
         try (PreparedStatement statement = cn.prepareStatement("SELECT * FROM items")) {
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    items.add(new Item(
+                    items.add(itemOf(
                             resultSet.getInt("id"),
                             resultSet.getString("name"),
                             resultSet.getTimestamp("date").toLocalDateTime()
@@ -117,7 +121,7 @@ public class SqlTracker implements Store {
             statement.setString(1, key);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    items.add(new Item(
+                    items.add(itemOf(
                             resultSet.getInt("id"),
                             resultSet.getString("name"),
                             resultSet.getTimestamp("date").toLocalDateTime()
@@ -137,7 +141,7 @@ public class SqlTracker implements Store {
             statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
-                    item = new Item(
+                    item = itemOf(
                             resultSet.getInt("id"),
                             resultSet.getString("name"),
                             resultSet.getTimestamp("date").toLocalDateTime());
