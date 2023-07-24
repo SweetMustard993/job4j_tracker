@@ -22,11 +22,12 @@ public class Item {
     public Item(int id, String name, LocalDateTime date) {
         this.id = id;
         this.name = name;
-        created = LocalDateTime.now();
+        created = date;
     }
 
     public Item(String name) {
         this.name = name;
+        created = LocalDateTime.now();
     }
 
     public LocalDateTime getCreated() {

@@ -41,7 +41,7 @@ public class SqlTracker implements Store {
     private Item itemOf(ResultSet resultSet) throws SQLException {
         return new Item(resultSet.getInt("id"),
                 resultSet.getString("name"),
-                resultSet.getTimestamp("date").toLocalDateTime());
+                resultSet.getTimestamp("created").toLocalDateTime());
     }
 
     @Override
@@ -57,6 +57,9 @@ public class SqlTracker implements Store {
                 PreparedStatement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, item.getName());
             LocalDateTime itemCreateDate = item.getCreated();
+            if (item.getCreated() == null) {
+                itemCreateDate = LocalDateTime.now();
+            }
             preparedStatement.setTimestamp(2, Timestamp.valueOf(itemCreateDate));
             preparedStatement.execute();
             try (ResultSet generatedId = preparedStatement.getGeneratedKeys()) {
@@ -78,6 +81,7 @@ public class SqlTracker implements Store {
             LocalDateTime itemCreateDate = item.getCreated();
             statement.setTimestamp(2, Timestamp.valueOf(itemCreateDate));
             statement.setInt(3, id);
+            statement.execute();
             rsl = true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -90,6 +94,7 @@ public class SqlTracker implements Store {
         boolean rsl = false;
         try (PreparedStatement statement = cn.prepareStatement("DELETE FROM items WHERE id = ?")) {
             statement.setInt(1, id);
+            statement.execute();
             rsl = true;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -131,7 +136,7 @@ public class SqlTracker implements Store {
     @Override
     public Item findById(int id) {
         Item item = null;
-        try (PreparedStatement statement = cn.prepareStatement("SELECT * FROM items WHERE name = ?")) {
+        try (PreparedStatement statement = cn.prepareStatement("SELECT * FROM items WHERE id = ?")) {
             statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
